@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Context } from '../../context/BlogContext';
+import { EvilIcons } from '@expo/vector-icons';
 
 const ShowScreen = ({  route, navigation }) => {
   const { state } = useContext(Context);
@@ -11,7 +12,10 @@ const ShowScreen = ({  route, navigation }) => {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.route('Edit', { id })}>
+      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+        <EvilIcons style={styles.iconStyle} name="pencil" size={35} />
+      </TouchableOpacity>
+      <TouchableOpacity>
         <Text>{blogPost.title}</Text> 
         <Text>{blogPost.content}</Text> 
        </TouchableOpacity>
@@ -19,6 +23,10 @@ const ShowScreen = ({  route, navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  iconStyle: {
+    marginLeft: 355,
+  },
+});
 
 export default ShowScreen;
