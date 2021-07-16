@@ -22,11 +22,6 @@ export default function App() {
           component={IndexScreen}
           options={({ navigation, route }) => ({
             headerTitle: 'Blogs',
-            headerRight: () => (
-              <TouchableOpacity onPress={() => navigation.navigate('Create')}>
-              <Feather name="plus" size={30} />
-            </TouchableOpacity>
-            ),
             headerStyle: {
               backgroundColor: '#f0eeee'
             },
@@ -37,18 +32,6 @@ export default function App() {
           <Stack.Screen
             name="Show"
             component={ShowScreen}
-            options={({ navigation, route }) => ({
-              headerTitle: 'Blogs',
-              headerRight: () => (
-                <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
-                <EvilIcons name="pencil" size={35} />
-              </TouchableOpacity>
-              ),
-              headerStyle: {
-                backgroundColor: '#f0eeee'
-              },
-              headerTintColor: '#fff',
-            })}
             headerShown={false}
           />
           <Stack.Screen

@@ -5,9 +5,13 @@ import { Feather } from '@expo/vector-icons';
 
 const IndexScreen = ({ navigation }) => {
   const { state, deleteBlogPost } = useContext(Context);
-  
+
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Create')}>
+        <Feather style={styles.touchable} name="plus" size={30} />
+      </TouchableOpacity>
       <FlatList
         data={state}
         keyExtractor={blogPost => blogPost.title}
@@ -47,7 +51,10 @@ const styles = StyleSheet.create({
   icon: {
     fontSize: 24,
     color: '#ff2222'
-  }
+  },
+  touchable: {
+    marginLeft: 355,
+  },
 });
 
 export default IndexScreen;
