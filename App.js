@@ -12,7 +12,7 @@ import { Feather, EvilIcons } from '@expo/vector-icons';
 
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () =>  {
   return (
     <Provider>
       <NavigationContainer>
@@ -20,8 +20,11 @@ export default function App() {
           <Stack.Screen
           name="Index"
           component={IndexScreen}
-          options={({ navigation, route }) => ({
+          options={({ route, navigation }) => ({
             headerTitle: 'Blogs',
+            headerRight: () => <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+              <Feather name="plus" size={30} />
+            </TouchableOpacity>,
             headerStyle: {
               backgroundColor: '#f0eeee'
             },
@@ -32,7 +35,10 @@ export default function App() {
           <Stack.Screen
             name="Show"
             component={ShowScreen}
-            headerShown={false}
+            options={({ route }) => ({ 
+            headerRight: () => <TouchableOpacity>
+              <EvilIcons name="pencil" size={35} />
+            </TouchableOpacity>, title: route.params.title })}
           />
           <Stack.Screen
             name="Create"
@@ -49,3 +55,5 @@ export default function App() {
     </Provider>
   );
 }
+
+export default App;

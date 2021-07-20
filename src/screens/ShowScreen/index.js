@@ -12,14 +12,14 @@ const ShowScreen = ({  route, navigation }) => {
 
   return (
     <View>
-      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
-        <EvilIcons style={styles.iconStyle} name="pencil" size={35} />
-      </TouchableOpacity>
-      <TouchableOpacity>
+      <View style={styles.header}>
+      <TouchableOpacity> 
         <Text>{blogPost.title}</Text> 
         <Text>{blogPost.content}</Text> 
        </TouchableOpacity>
+      </View>
     </View>
+    // Make it goes to the right edit screen with the id of post
   );
 };
 

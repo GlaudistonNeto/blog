@@ -8,10 +8,6 @@ const IndexScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.navigate('Create')}>
-        <Feather style={styles.touchable} name="plus" size={30} />
-      </TouchableOpacity>
       <FlatList
         data={state}
         keyExtractor={blogPost => blogPost.title}
