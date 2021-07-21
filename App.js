@@ -36,7 +36,7 @@ const App = () =>  {
             name="Show"
             component={ShowScreen}
             options={({ route, navigation }) => ({ 
-            headerRight: () => <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+            headerRight: () => <TouchableOpacity onPress={() => navigation.push('Edit', { id } )}>
               <EvilIcons name="pencil" size={35} />
             </TouchableOpacity>, 
             headerStyle: {

@@ -1,15 +1,29 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Context } from '../../context/BlogContext';
 
-import { Container, StyledText } from './styles';
+const EditScreen = ({  route, navigation }) => {
+  const { state } = useContext(Context);
+  const { id } = route.params;
 
-const EditScreen = () => {
+  const blogPost = state.find (blogPost => blogPost.id === id);
 
   return (
-    <Container>
-      <StyledText>Edit</StyledText>
-    </Container>
-    );
-}
+    <View>
+      <View style={styles.header}>
+      <TouchableOpacity> 
+        <Text>{id}</Text> 
+       </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  iconStyle: {
+    marginLeft: 355,
+  },
+});
 
 export default EditScreen;
