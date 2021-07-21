@@ -35,10 +35,15 @@ const App = () =>  {
           <Stack.Screen
             name="Show"
             component={ShowScreen}
-            options={({ route }) => ({ 
-            headerRight: () => <TouchableOpacity>
+            options={({ route, navigation }) => ({ 
+            headerRight: () => <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
               <EvilIcons name="pencil" size={35} />
-            </TouchableOpacity>, title: route.params.title })}
+            </TouchableOpacity>, 
+            headerStyle: {
+              backgroundColor: '#f0eeee'
+            },
+            headerTintColor: '#fff'
+            })}
           />
           <Stack.Screen
             name="Create"
@@ -47,6 +52,12 @@ const App = () =>  {
           />
           <Stack.Screen
             name="Edit"
+            options={({ route, navigation }) => ({
+              headerStyle: {
+                backgroundColor: '#f0eeee'
+              },
+              headerTintColor: '#fff'
+            })}
             component={EditScreen}
             headerShown={false}
           />

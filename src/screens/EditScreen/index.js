@@ -1,24 +1,15 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useContext } from 'react';
+import { Context } from '../../context/BlogContext';
 
-const EditScreen = ({ route, navigation }) => {
-  const { id } = route.params;
+import { Container, StyledText } from './styles';
+
+const EditScreen = () => {
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.textStyle}>Edit, { navigation.route(id) }</Text>
-    </View>
+    <Container>
+      <StyledText>Edit</StyledText>
+    </Container>
     );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  }, textStyle: {
-    fontSize: 20,
-  },
-});
 
 export default EditScreen;
